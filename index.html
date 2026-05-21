@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eventos Brookhaven - Invierno</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#07111f;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* FONDO */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.80)),
+    url('https://images.unsplash.com/photo-1517299321609-52687d1bc55a?q=80&w=2070&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    backdrop-filter:blur(5px);
+    z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:fixed;
+    top:0;
+
+    background:rgba(0,0,0,.30);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    z-index:999;
+}
+
+.logo-container{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-container img{
+    width:65px;
+    height:65px;
+    object-fit:contain;
+    border-radius:18px;
+    box-shadow:0 0 25px #00d9ff;
+}
+
+.logo-text{
+    font-size:28px;
+    font-weight:800;
+    color:#7de9ff;
+
+    text-shadow:
+    0 0 10px #00d9ff,
+    0 0 20px #00d9ff;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:#7de9ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:120px 20px;
+}
+
+.hero-content{
+    max-width:950px;
+}
+
+.hero h1{
+    font-size:95px;
+    line-height:1;
+
+    margin-bottom:25px;
+
+    color:#dff9ff;
+
+    text-shadow:
+    0 0 10px #00d9ff,
+    0 0 25px #00d9ff,
+    0 0 45px #00d9ff;
+}
+
+.hero span{
+    color:#66e7ff;
+}
+
+.hero p{
+    font-size:21px;
+    line-height:1.8;
+    margin-bottom:40px;
+    opacity:.95;
+}
+
+.btn{
+    display:inline-block;
+
+    padding:18px 45px;
+
+    border-radius:18px;
+
+    background:#00cfff;
+
+    color:white;
+    text-decoration:none;
+
+    font-weight:700;
+    font-size:17px;
+
+    box-shadow:0 0 25px #00cfff;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.06);
+    box-shadow:0 0 40px #00e1ff;
+}
+
+/* SECCIONES */
+
+section{
+    padding:100px 8%;
+}
+
+.title{
+    font-size:48px;
+    margin-bottom:45px;
+
+    color:#8cebff;
+
+    text-shadow:0 0 20px #00d9ff;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+/* CARD */
+
+.card{
+    background:rgba(10,20,40,.70);
+
+    border:1px solid rgba(125,233,255,.15);
+
+    padding:35px;
+
+    border-radius:28px;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 0 30px rgba(0,217,255,.10);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:0 0 40px rgba(0,217,255,.35);
+}
+
+.card h3{
+    color:#7de9ff;
+    margin-bottom:20px;
+    font-size:25px;
+}
+
+.card p{
+    line-height:1.8;
+    opacity:.95;
+}
+
+/* STAFF */
+
+.staff-member{
+    background:rgba(255,255,255,.04);
+
+    padding:18px;
+
+    border-radius:18px;
+
+    margin-bottom:18px;
+}
+
+.staff-member h3{
+    margin-bottom:8px;
+}
+
+/* REGLAS */
+
+.rules li{
+    margin-bottom:15px;
+    line-height:1.7;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:50px;
+
+    padding:40px;
+
+    text-align:center;
+
+    background:rgba(0,0,0,.45);
+
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* NIEVE */
+
+.snow{
+    position:fixed;
+
+    width:100%;
+    height:100%;
+
+    top:0;
+    left:0;
+
+    pointer-events:none;
+}
+
+.snow span{
+    position:absolute;
+
+    top:-10px;
+
+    animation:fall linear infinite;
+
+    color:white;
+}
+
+@keyframes fall{
+
+    to{
+        transform:translateY(110vh);
+    }
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .title{
+        font-size:36px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NIEVE -->
+
+<div class="snow" id="snow"></div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo-container">
+
+<img src="logoinvierno.png" alt="Logo Eventos Brookhaven">
+
+<div class="logo-text">
+Eventos Brookhaven
+</div>
+
+</div>
+
+<ul>
+
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#reglas">Reglas</a></li>
+<li><a href="#staff">Staff</a></li>
+<li><a href="#discord">Discord</a></li>
+
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<h1>
+EVENTOS
+<span>BROOKHAVEN</span>
+</h1>
+
+<p>
+
+Servidor Roleplay de Discord ambientado en invierno ❄️🌨️
+vive eventos únicos, roleplay urbano, comunidad activa
+y noches llenas de diversión bajo la nieve.
+
+</p>
+
+<a class="btn" href="https://discord.gg/4eM9jeUq8a" target="_blank">
+
+UNIRSE AL DISCORD
+
+</a>
+
+</div>
+
+</section>
+
+<!-- REGLAS -->
+
+<section id="reglas">
+
+<h2 class="title">
+📜 Reglas
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<ul class="rules">
+
+<li>No se toleran faltas de respeto de ningún motivo.</li>
+
+<li>Esta prohibido el contenido +18, Nsfw o ilegal.</li>
+
+<li>Prohibido el Flood, Spam, Promoción sin autorización.</li>
+
+<li>Siempre seguir indicaciones y el rol como esta asignado.</li>
+
+<li>No se tolera fly, antirol, traspasar paredes y hacks.</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>⛄ Comunidad</h3>
+
+<p>
+
+୭ ˚. ᵎᵎ 🌨️ ₊ ⊹ 💬 𝐂𝐨𝐦𝐮𝐧𝐢𝐝𝐚𝐝 ₊ ⊹ ❄️ ˚₊୧
+
+<br><br>
+
+En Eventos Brookhaven buscamos crear una comunidad activa, amigable y llena de buenas vibras 🌃💙
+
+<br><br>
+
+☕ Chats activos
+<br>
+🎧 Música & conversaciones nocturnas
+<br>
+📸 Compartir fotos y momentos RP
+<br>
+🤝 Nuevas amistades y equipos RP
+<br>
+❄️ Siempre hay algo que hacer
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STAFF -->
+
+<section id="staff">
+
+<h2 class="title">
+👑 Staff
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="staff-member">
+
+<h3>Desconocido</h3>
+<p>Fundador</p>
+
+</div>
+
+<div class="staff-member">
+
+<h3>Saiko! / @v0lnztqq</h3>
+<p>Owner</p>
+
+</div>
+
+<div class="staff-member">
+
+<h3>Pendiente</h3>
+<p>Administrador</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>🎉 Eventos Especiales</h3>
+
+<p>
+
+୭ ˚. ᵎᵎ ❄️ ₊ ⊹ 🚕 𝐄𝐯𝐞𝐧𝐭𝐨𝐬 𝐄𝐬𝐩𝐞𝐜𝐢𝐚𝐥𝐞𝐬 ₊ ⊹ 🌃 ˚₊୧
+
+<br><br>
+
+En Eventos Brookhaven la ciudad nunca duerme… mucho menos en invierno 🌨️🏙️
+
+<br><br>
+
+❄️ Cafeterías nevadas
+<br>
+🧣 Caminatas nocturnas
+<br>
+⛸️ Patinaje sobre hielo
+<br>
+🎄 Festivales de luces y decoración
+<br>
+🚓 Operativos policiales en tormentas
+<br><br>
+
+🚗 Carreras ilegales
+<br>
+🚨 Persecuciones policiales
+<br>
+🏢 Roleplay urbano y nocturno
+<br>
+🖤 Reuniones secretas & mafias
+<br>
+🎧 Fiestas underground
+<br><br>
+
+💎 Concursos estéticos
+<br>
+🎟️ Sorteos especiales
+<br>
+🏆 Competencias y desafíos
+<br>
+🎤 Karaoke nights
+<br>
+📸 Concursos de fotografía RP
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- DISCORD -->
+
+<section id="discord">
+
+<h2 class="title">
+💎 Únete
+</h2>
+
+<div class="card" style="text-align:center;">
+
+<h3>Servidor Oficial</h3>
+
+<p style="margin:25px 0;">
+
+Haz click abajo para entrar al servidor oficial de Eventos Brookhaven ❄️
+
+</p>
+
+<a class="btn" href="https://discord.gg/4eM9jeUq8a" target="_blank">
+
+ENTRAR AL DISCORD
+
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+❄️ Eventos Brookhaven - Invierno 2026
+
+</footer>
+
+<!-- SCRIPT NIEVE -->
+
+<script>
+
+const snow = document.getElementById("snow");
+
+for(let i = 0; i < 80; i++){
+
+    let flake = document.createElement("span");
+
+    flake.innerHTML = "❄";
+
+    flake.style.left = Math.random() * 100 + "vw";
+
+    flake.style.fontSize = Math.random() * 20 + 10 + "px";
+
+    flake.style.animationDuration = Math.random() * 10 + 5 + "s";
+
+    flake.style.opacity = Math.random();
+
+    snow.appendChild(flake);
+
+}
+
+</script>
+
+</body>
+</html>
