@@ -186,6 +186,48 @@ nav a:hover{
     box-shadow:0 0 40px #00e1ff;
 }
 
+/* BOTON MUSICA */
+
+.music-btn{
+
+    position:fixed;
+
+    bottom:25px;
+    right:25px;
+
+    width:65px;
+    height:65px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(0,207,255,.15);
+
+    color:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:0 0 25px #00d9ff;
+
+    transition:.3s;
+
+    z-index:9999;
+}
+
+.music-btn:hover{
+
+    transform:scale(1.1);
+
+    box-shadow:0 0 40px #00e1ff;
+}
+
 /* SECCIONES */
 
 section{
@@ -572,6 +614,20 @@ ENTRAR AL DISCORD
 
 </section>
 
+<!-- BOTON MUSICA -->
+
+<button class="music-btn" onclick="toggleMusic()">
+
+🎵
+
+</button>
+
+<audio id="bgMusic" loop>
+
+<source src="505s.mp3" type="audio/mpeg">
+
+</audio>
+
 <!-- FOOTER -->
 
 <footer>
@@ -580,9 +636,11 @@ ENTRAR AL DISCORD
 
 </footer>
 
-<!-- SCRIPT NIEVE -->
+<!-- SCRIPT -->
 
 <script>
+
+/* NIEVE */
 
 const snow = document.getElementById("snow");
 
@@ -601,6 +659,30 @@ for(let i = 0; i < 80; i++){
     flake.style.opacity = Math.random();
 
     snow.appendChild(flake);
+
+}
+
+/* MUSICA */
+
+const music = document.getElementById("bgMusic");
+
+let isPlaying = false;
+
+function toggleMusic(){
+
+    if(isPlaying){
+
+        music.pause();
+
+        isPlaying = false;
+
+    } else {
+
+        music.play();
+
+        isPlaying = true;
+
+    }
 
 }
 
