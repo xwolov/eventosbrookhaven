@@ -1,3 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eventos Brookhaven - Invierno</title>
+
+<!-- EMBED -->
+
+<meta property="og:title" content="Eventos Brookhaven - Invierno">
+
+<meta property="og:description" content="Servidor Roleplay de Discord ambientado en invierno ❄️ comunidad activa, eventos especiales y noches llenas de roleplay bajo la nieve.">
+
+<meta property="og:image" content="https://xwolov.github.io/eventosbrookhaven/logoinvierno.png">
+
+<meta property="og:url" content="https://xwolov.github.io/eventosbrookhaven/">
+
+<meta property="og:type" content="website">
+
+<meta name="theme-color" content="#00d9ff">
+
+<!-- FAVICON -->
+
+<link rel="icon" type="image/png" href="logoinvierno.png">
+
+<!-- FUENTE -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#07111f;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* FONDO */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.80)),
+    url('https://images.unsplash.com/photo-1517299321609-52687d1bc55a?q=80&w=2070&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    backdrop-filter:blur(5px);
+    z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:fixed;
+    top:0;
+
+    background:rgba(0,0,0,.30);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    z-index:999;
+}
+
+.logo-container{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-container img{
+    width:65px;
+    height:65px;
+    object-fit:contain;
+    border-radius:18px;
+
+    box-shadow:
+    0 0 10px #00d9ff,
+    0 0 30px #00d9ff;
+}
+
+.logo-text{
+    font-size:28px;
+    font-weight:800;
+    color:#7de9ff;
+
+    text-shadow:
+    0 0 10px #00d9ff,
+    0 0 20px #00d9ff;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:#7de9ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:120px 20px;
+}
+
+.hero-content{
+    max-width:950px;
+}
+
+.hero h1{
+    font-size:95px;
+    line-height:1;
+
+    margin-bottom:25px;
+
+    color:#dff9ff;
+
+    text-shadow:
+    0 0 10px #00d9ff,
+    0 0 25px #00d9ff,
+    0 0 45px #00d9ff;
+}
+
+.hero span{
+    color:#66e7ff;
+}
+
+.hero p{
+    font-size:21px;
+    line-height:1.8;
+    margin-bottom:40px;
+    opacity:.95;
+}
+
+/* BOTONES */
+
+.btn{
+    display:inline-block;
+
+    padding:18px 45px;
+
+    border-radius:18px;
+
+    background:#00cfff;
+
+    color:white;
+    text-decoration:none;
+
+    font-weight:700;
+    font-size:17px;
+
+    box-shadow:
+    0 0 20px #00cfff,
+    0 0 40px #00cfff;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.06);
+
+    box-shadow:
+    0 0 30px #00e1ff,
+    0 0 60px #00e1ff;
+}
+
+/* BOTON MUSICA */
+
+.music-btn{
+
+    position:fixed;
+
+    bottom:25px;
+    right:25px;
+
+    width:70px;
+    height:70px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(0,207,255,.15);
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+    0 0 20px #00d9ff,
+    0 0 50px #00d9ff;
+
+    transition:.3s;
+
+    z-index:9999;
+}
+
+.music-btn:hover{
+    transform:scale(1.1);
+}
+
+/* SECCIONES */
+
+section{
+    padding:100px 8%;
+}
+
+.title{
+    font-size:48px;
+    margin-bottom:45px;
+
+    color:#8cebff;
+
+    text-shadow:
+    0 0 10px #00d9ff,
+    0 0 25px #00d9ff;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+/* CARDS */
+
+.card{
+    background:rgba(10,20,40,.70);
+
+    border:1px solid rgba(125,233,255,.15);
+
+    padding:35px;
+
+    border-radius:28px;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    0 0 20px rgba(0,217,255,.15),
+    0 0 50px rgba(0,217,255,.10);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 30px rgba(0,217,255,.35),
+    0 0 60px rgba(0,217,255,.20);
+}
+
+.card h3{
+    color:#7de9ff;
+    margin-bottom:20px;
+    font-size:25px;
+}
+
+.card p{
+    line-height:1.8;
+    opacity:.95;
+}
+
+/* STAFF */
+
+.staff-member{
+    background:rgba(255,255,255,.04);
+
+    padding:18px;
+
+    border-radius:18px;
+
+    margin-bottom:18px;
+}
+
+/* REGLAS */
+
+.rules li{
+    margin-bottom:15px;
+    line-height:1.7;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:50px;
+
+    padding:40px;
+
+    text-align:center;
+
+    background:rgba(0,0,0,.45);
+
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* NIEVE */
+
+.snow{
+    position:fixed;
+
+    width:100%;
+    height:100%;
+
+    top:0;
+    left:0;
+
+    pointer-events:none;
+}
+
+.snow span{
+    position:absolute;
+
+    top:-10px;
+
+    animation:fall linear infinite;
+
+    color:white;
+}
+
+@keyframes fall{
+
+    to{
+        transform:translateY(110vh);
+    }
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .title{
+        font-size:36px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NIEVE -->
+
+<div class="snow" id="snow"></div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo-container">
+
+<img src="logoinvierno.png" alt="Logo Eventos Brookhaven">
+
+<div class="logo-text">
+Eventos Brookhaven
+</div>
+
+</div>
+
+<ul>
+
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#reglas">Reglas</a></li>
+<li><a href="#staff">Staff</a></li>
+<li><a href="#discord">Discord</a></li>
+
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<h1>
+EVENTOS
+<span>BROOKHAVEN</span>
+</h1>
+
+<p>
+
+Servidor Roleplay de Discord ambientado en invierno ❄️🌨️
+vive eventos únicos, roleplay urbano, comunidad activa
+y noches llenas de diversión bajo la nieve.
+
+</p>
+
+<a class="btn" href="https://discord.gg/4eM9jeUq8a" target="_blank">
+
+UNIRSE AL DISCORD
+
+</a>
+
+</div>
+
+</section>
+
+<!-- REGLAS -->
+
+<section id="reglas">
+
+<h2 class="title">
+📜 Reglas
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<ul class="rules">
+
+<li>No se toleran faltas de respeto de ningún motivo.</li>
+
+<li>Esta prohibido el contenido +18, Nsfw o ilegal.</li>
+
+<li>Prohibido el Flood, Spam, Promoción sin autorización.</li>
+
+<li>Siempre seguir indicaciones y el rol como esta asignado.</li>
+
+<li>No se tolera fly, antirol, traspasar paredes y hacks.</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>⛄ Comunidad</h3>
+
+<p>
+
+🌨️ Comunidad activa y amigable llena de roleplay, eventos y diversión.
+
+<br><br>
+
+☕ Chats activos  
+🎧 Música y conversaciones nocturnas  
+📸 Compartir momentos RP  
+🤝 Nuevas amistades  
+❄️ Siempre hay algo que hacer
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STAFF -->
+
+<section id="staff">
+
+<h2 class="title">
+👑 Staff
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="staff-member">
+<h3>Desconocido</h3>
+<p>Fundador</p>
+</div>
+
+<div class="staff-member">
+<h3>Saiko! / @v0lnztqq</h3>
+<p>Owner</p>
+</div>
+
+<div class="staff-member">
+<h3>Pendiente</h3>
+<p>Administrador</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>🎉 Eventos Especiales</h3>
+
+<p>
+
+❄️ Cafeterías nevadas  
+🚓 Operativos policiales  
+🚗 Carreras ilegales  
+🎄 Festivales de invierno  
+🎧 Fiestas underground  
+🏆 Concursos y desafíos
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
 <!-- DISCORD -->
 
 <section id="discord">
@@ -29,10 +600,10 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-wrap:wrap;
-gap:30px;
+gap:40px;
 ">
 
-<!-- WIDGET DISCORD -->
+<!-- WIDGET -->
 
 <iframe 
 src="https://discord.com/widget?id=1437936780023173183&theme=dark" 
@@ -51,15 +622,9 @@ box-shadow:
 0 0 20px rgba(0,217,255,.35),
 0 0 40px rgba(0,217,255,.25),
 0 0 60px rgba(0,217,255,.15);
-
-background:rgba(255,255,255,.03);
-
-backdrop-filter:blur(10px);
 "
 
 ></iframe>
-
-<!-- INFO EXTRA -->
 
 <div style="
 max-width:400px;
@@ -83,7 +648,7 @@ font-size:17px;
 opacity:.95;
 ">
 
-🌨️ Vive eventos únicos junto a toda la comunidad de Eventos Brookhaven.
+🌨️ Vive eventos únicos junto a toda la comunidad.
 
 <br><br>
 
@@ -91,7 +656,7 @@ opacity:.95;
 🎄 Eventos de invierno  
 🎧 Música y chats activos  
 🚗 Persecuciones y carreras  
-💎 Concursos y sorteos  
+💎 Concursos y sorteos
 
 <br><br>
 
@@ -106,3 +671,74 @@ La ciudad nunca duerme bajo la nieve ❄️🌃
 </div>
 
 </section>
+
+<!-- BOTON MUSICA -->
+
+<button class="music-btn" onclick="toggleMusic()">
+🎵
+</button>
+
+<audio id="bgMusic" loop>
+<source src="505s.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FOOTER -->
+
+<footer>
+
+❄️ Eventos Brookhaven - Invierno 2026
+
+</footer>
+
+<!-- SCRIPT -->
+
+<script>
+
+/* NIEVE */
+
+const snow = document.getElementById("snow");
+
+for(let i = 0; i < 80; i++){
+
+    let flake = document.createElement("span");
+
+    flake.innerHTML = "❄";
+
+    flake.style.left = Math.random() * 100 + "vw";
+
+    flake.style.fontSize = Math.random() * 20 + 10 + "px";
+
+    flake.style.animationDuration = Math.random() * 10 + 5 + "s";
+
+    flake.style.opacity = Math.random();
+
+    snow.appendChild(flake);
+
+}
+
+/* MUSICA */
+
+const music = document.getElementById("bgMusic");
+
+let isPlaying = false;
+
+function toggleMusic(){
+
+    if(isPlaying){
+
+        music.pause();
+        isPlaying = false;
+
+    } else {
+
+        music.play();
+        isPlaying = true;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
