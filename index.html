@@ -1,36 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Eventos Brookhaven - Invierno</title>
-
-<!-- EMBED / PREVIEW -->
-
-<meta property="og:title" content="Eventos Brookhaven - Invierno">
-
-<meta property="og:description" content="Servidor Roleplay de Discord ambientado en invierno ❄️ comunidad activa, eventos especiales y noches llenas de roleplay bajo la nieve.">
-
-<meta property="og:image" content="https://xwolov.github.io/eventosbrookhaven/logoinvierno.png">
-
-<meta property="og:url" content="https://xwolov.github.io/eventosbrookhaven/">
-
-<meta property="og:type" content="website">
-
-<meta name="theme-color" content="#00d9ff">
-
-<!-- FAVICON -->
-
-<link rel="icon" type="image/png" href="logoinvierno.png">
-
-<!-- FUENTES -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>Eventos Brookhaven</title>
 
 <style>
 
@@ -38,6 +11,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
 html{
@@ -45,666 +19,466 @@ html{
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#07111f;
+    background:linear-gradient(135deg,#070010,#0a0014,#000);
     color:white;
     overflow-x:hidden;
+    position:relative;
 }
 
-/* FONDO */
-
-body::before{
-    content:"";
+canvas{
     position:fixed;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
+    z-index:-3;
+}
 
-    background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.80)),
-    url('https://images.unsplash.com/photo-1517299321609-52687d1bc55a?q=80&w=2070&auto=format&fit=crop');
-
-    background-size:cover;
-    background-position:center;
+.bg-glow{
+    position:fixed;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,#a855f744,transparent 70%);
+    filter:blur(120px);
+    top:-200px;
+    right:-200px;
     z-index:-2;
 }
 
-body::after{
-    content:"";
+.bg-glow2{
     position:fixed;
-    width:100%;
-    height:100%;
-    backdrop-filter:blur(5px);
-    z-index:-1;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,#c084fc33,transparent 70%);
+    filter:blur(130px);
+    bottom:-200px;
+    left:-200px;
+    z-index:-2;
 }
 
-/* NAVBAR */
-
-nav{
+.navbar{
+    position:fixed;
+    top:0;
     width:100%;
-    padding:18px 8%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-
-    position:fixed;
-    top:0;
-
-    background:rgba(0,0,0,.30);
-    backdrop-filter:blur(12px);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
+    padding:18px 7%;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
     z-index:999;
 }
 
-.logo-container{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.logo-container img{
-    width:65px;
-    height:65px;
-    object-fit:contain;
-    border-radius:18px;
-    box-shadow:0 0 25px #00d9ff;
-}
-
-.logo-text{
-    font-size:28px;
+.logo{
+    font-size:1.3rem;
     font-weight:800;
-    color:#7de9ff;
-
-    text-shadow:
-    0 0 10px #00d9ff,
-    0 0 20px #00d9ff;
+    letter-spacing:2px;
+    color:#d8b4fe;
 }
 
-nav ul{
+.nav-links{
     display:flex;
-    gap:30px;
-    list-style:none;
+    gap:25px;
+    flex-wrap:wrap;
 }
 
-nav a{
-    color:white;
+.nav-links a{
     text-decoration:none;
-    transition:.3s;
-    font-weight:500;
-}
-
-nav a:hover{
-    color:#7de9ff;
-}
-
-/* HERO */
-
-.hero{
-    min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    padding:120px 20px;
-}
-
-.hero-content{
-    max-width:950px;
-}
-
-.hero h1{
-    font-size:95px;
-    line-height:1;
-
-    margin-bottom:25px;
-
-    color:#dff9ff;
-
-    text-shadow:
-    0 0 10px #00d9ff,
-    0 0 25px #00d9ff,
-    0 0 45px #00d9ff;
-}
-
-.hero span{
-    color:#66e7ff;
-}
-
-.hero p{
-    font-size:21px;
-    line-height:1.8;
-    margin-bottom:40px;
-    opacity:.95;
-}
-
-.btn{
-    display:inline-block;
-
-    padding:18px 45px;
-
-    border-radius:18px;
-
-    background:#00cfff;
-
     color:white;
-    text-decoration:none;
-
-    font-weight:700;
-    font-size:17px;
-
-    box-shadow:0 0 25px #00cfff;
-
     transition:.3s;
 }
 
-.btn:hover{
-    transform:scale(1.06);
-    box-shadow:0 0 40px #00e1ff;
+.nav-links a:hover{
+    color:#c084fc;
+    transform:scale(1.08);
 }
-
-/* BOTON MUSICA */
-
-.music-btn{
-
-    position:fixed;
-
-    bottom:25px;
-    right:25px;
-
-    width:65px;
-    height:65px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:rgba(0,207,255,.15);
-
-    color:white;
-
-    font-size:28px;
-
-    cursor:pointer;
-
-    backdrop-filter:blur(10px);
-
-    border:1px solid rgba(255,255,255,.15);
-
-    box-shadow:0 0 25px #00d9ff;
-
-    transition:.3s;
-
-    z-index:9999;
-}
-
-.music-btn:hover{
-
-    transform:scale(1.1);
-
-    box-shadow:0 0 40px #00e1ff;
-}
-
-/* SECCIONES */
 
 section{
     padding:100px 8%;
 }
 
-.title{
-    font-size:48px;
-    margin-bottom:45px;
-
-    color:#8cebff;
-
-    text-shadow:0 0 20px #00d9ff;
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
 
-/* GRID */
+.hero-content h1{
+    font-size:clamp(3rem,8vw,6rem);
+    margin-bottom:20px;
+    text-shadow:
+    0 0 15px #a855f7,
+    0 0 35px #a855f7,
+    0 0 70px #c084fc;
+}
 
-.grid{
+.hero-content p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.2rem;
+    color:#ddd;
+    margin-bottom:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    border:none;
+    border-radius:14px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,#9333ea,#c084fc);
+    box-shadow:0 0 25px rgba(168,85,247,.5);
+    transition:.35s;
+    cursor:pointer;
+}
+
+.btn:hover{
+    transform:translateY(-4px) scale(1.05);
+    box-shadow:0 0 45px rgba(192,132,252,.8);
+}
+
+.music-player{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    z-index:9999;
+}
+
+#bgMusic{
+    display:none;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+    color:#d8b4fe;
+}
+
+.stats-grid,
+.staff-grid,
+.support-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:25px;
 }
-
-/* CARD */
 
 .card{
-    background:rgba(10,20,40,.70);
-
-    border:1px solid rgba(125,233,255,.15);
-
-    padding:35px;
-
-    border-radius:28px;
-
-    backdrop-filter:blur(12px);
-
-    box-shadow:0 0 30px rgba(0,217,255,.10);
-
-    transition:.3s;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    padding:30px;
+    transition:.35s;
 }
 
 .card:hover{
     transform:translateY(-10px);
-
-    box-shadow:0 0 40px rgba(0,217,255,.35);
+    box-shadow:0 0 30px rgba(168,85,247,.45);
 }
 
-.card h3{
-    color:#7de9ff;
-    margin-bottom:20px;
-    font-size:25px;
+.stat-number{
+    font-size:2.4rem;
+    color:#c084fc;
+    font-weight:800;
 }
 
-.card p{
-    line-height:1.8;
-    opacity:.95;
+.timeline{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+    max-width:900px;
+    margin:auto;
 }
 
-/* STAFF */
-
-.staff-member{
-    background:rgba(255,255,255,.04);
-
-    padding:18px;
-
-    border-radius:18px;
-
-    margin-bottom:18px;
+.event-card{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(15px);
+    border-left:5px solid #a855f7;
+    border-radius:20px;
+    padding:25px;
 }
 
-.staff-member h3{
-    margin-bottom:8px;
-}
-
-/* REGLAS */
-
-.rules li{
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:999px;
+    background:#9333ea;
     margin-bottom:15px;
-    line-height:1.7;
 }
 
-/* FOOTER */
+.role{
+    display:inline-block;
+    margin-top:10px;
+    padding:6px 12px;
+    border-radius:999px;
+    background:#9333ea;
+}
+
+.discord{
+    text-align:center;
+}
 
 footer{
-    margin-top:50px;
-
-    padding:40px;
-
+    padding:30px;
     text-align:center;
-
-    background:rgba(0,0,0,.45);
-
-    border-top:1px solid rgba(255,255,255,.08);
-}
-
-/* NIEVE */
-
-.snow{
-    position:fixed;
-
-    width:100%;
-    height:100%;
-
-    top:0;
-    left:0;
-
-    pointer-events:none;
-}
-
-.snow span{
-    position:absolute;
-
-    top:-10px;
-
-    animation:fall linear infinite;
-
-    color:white;
-}
-
-@keyframes fall{
-
-    to{
-        transform:translateY(110vh);
-    }
-
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-    .hero h1{
-        font-size:55px;
-    }
-
-    nav ul{
-        display:none;
-    }
-
-    .title{
-        font-size:36px;
-    }
-
+    color:#999;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- NIEVE -->
+<canvas id="particles"></canvas>
 
-<div class="snow" id="snow"></div>
+<div class="bg-glow"></div>
+<div class="bg-glow2"></div>
 
-<!-- NAVBAR -->
+<nav class="navbar">
+<div class="logo">EVENTOS BROOKHAVEN</div>
 
-<nav>
-
-<div class="logo-container">
-
-<img src="logoinvierno.png" alt="Logo Eventos Brookhaven">
-
-<div class="logo-text">
-Eventos Brookhaven
+<div class="nav-links">
+<a href="#inicio">Inicio</a>
+<a href="#info">Info</a>
+<a href="#eventos">Eventos</a>
+<a href="#staff">Staff</a>
+<a href="#discord">Discord</a>
+<a href="#apelaciones">Apelaciones</a>
+<a href="#soporte">Soporte</a>
 </div>
-
-</div>
-
-<ul>
-
-<li><a href="#inicio">Inicio</a></li>
-<li><a href="#reglas">Reglas</a></li>
-<li><a href="#staff">Staff</a></li>
-<li><a href="#discord">Discord</a></li>
-
-</ul>
-
 </nav>
 
-<!-- HERO -->
-
 <section class="hero" id="inicio">
-
 <div class="hero-content">
-
-<h1>
-EVENTOS
-<span>BROOKHAVEN</span>
-</h1>
-
-<p>
-
-Servidor Roleplay de Discord ambientado en invierno ❄️🌨️
-vive eventos únicos, roleplay urbano, comunidad activa
-y noches llenas de diversión bajo la nieve.
-
-</p>
-
-<a class="btn" href="https://discord.gg/4eM9jeUq8a" target="_blank">
-
-UNIRSE AL DISCORD
-
-</a>
-
+<h1>Eventos Brookhaven</h1>
+<p>Experiencias • Comunidad • Roleplay • Eventos dinámicos • Servidor premium futurista</p>
+<a href="#info" class="btn">Explorar</a>
 </div>
-
 </section>
 
-<!-- REGLAS -->
+<section id="info">
+<h2 class="section-title">Información del Servidor</h2>
 
-<section id="reglas">
-
-<h2 class="title">
-📜 Reglas
-</h2>
-
-<div class="grid">
+<div class="stats-grid">
 
 <div class="card">
-
-<ul class="rules">
-
-<li>No se toleran faltas de respeto de ningún motivo.</li>
-
-<li>Esta prohibido el contenido +18, Nsfw o ilegal.</li>
-
-<li>Prohibido el Flood, Spam, Promoción sin autorización.</li>
-
-<li>Siempre seguir indicaciones y el rol como esta asignado.</li>
-
-<li>No se tolera fly, antirol, traspasar paredes y hacks.</li>
-
-</ul>
-
+<div class="stat-number">24/7</div>
+<p>Servidor activo permanentemente.</p>
 </div>
 
 <div class="card">
+<div class="stat-number">Logs</div>
+<p>Errores solucionados y modificados.</p>
+</div>
 
-<h3>⛄ Comunidad</h3>
+<div class="card">
+<div class="stat-number">50+</div>
+<p>Eventos y Roles pendientes a realizar.</p>
+</div>
 
-<p>
-
-୭ ˚. ᵎᵎ 🌨️ ₊ ⊹ 💬 𝐂𝐨𝐦𝐮𝐧𝐢𝐝𝐚𝐝 ₊ ⊹ ❄️ ˚₊୧
-
-<br><br>
-
-En Eventos Brookhaven buscamos crear una comunidad activa, amigable y llena de buenas vibras 🌃💙
-
-<br><br>
-
-☕ Chats activos
-<br>
-🎧 Música & conversaciones nocturnas
-<br>
-📸 Compartir fotos y momentos RP
-<br>
-🤝 Nuevas amistades y equipos RP
-<br>
-❄️ Siempre hay algo que hacer
-
-</p>
-
+<div class="card">
+<div class="stat-number">Admins</div>
+<p>Equipo staff siempre activo.</p>
 </div>
 
 </div>
-
 </section>
 
-<!-- STAFF -->
+<section id="eventos">
+<h2 class="section-title">Próximos Eventos</h2>
 
+<div class="timeline">
+
+<div class="event-card">
+<span class="badge">PROXIMAMENTE</span>
+<h3>Carrera Nocturna Brookhaven</h3>
+<p>Participa en una emocionante carrera con premios exclusivos.</p>
+</div>
+
+<div class="event-card">
+<span class="badge">PROXIMAMENTE</span>
+<h3>RP Ciudad en Crisis</h3>
+<p>Un gran evento donde cada decisión cambia la historia.</p>
+</div>
+
+<div class="event-card">
+<span class="badge">FIN DE SEMANA</span>
+<h3>Concurso de Historias RP</h3>
+<p>Demuestra tu creatividad y gana recompensas.</p>
+</div>
+
+</div>
+</section>
 <section id="staff">
+<h2 class="section-title">Equipo Staff</h2>
 
-<h2 class="title">
-👑 Staff
-</h2>
-
-<div class="grid">
+<div class="staff-grid">
 
 <div class="card">
-
-<div class="staff-member">
-
-<h3>Desconocido</h3>
-<p>Fundador</p>
-
-</div>
-
-<div class="staff-member">
-
-<h3>Saiko! / @v0lnztqq</h3>
-<p>Owner</p>
-
-</div>
-
-<div class="staff-member">
-
-<h3>Pendiente</h3>
-<p>Administrador</p>
-
-</div>
-
+<h3>📖 FOUNDER</h3>
+<span class="role">Sebastis555</span>
 </div>
 
 <div class="card">
+<h3>👑 OWNER</h3>
+<span class="role">𐙚 ! 𝟐𝟐𝟐 ⋅ ( 𝖲𝖺𝗂𝗄𝗈 ) !</span>
+</div>
 
-<h3>🎉 Eventos Especiales</h3>
-
-<p>
-
-୭ ˚. ᵎᵎ ❄️ ₊ ⊹ 🚕 𝐄𝐯𝐞𝐧𝐭𝐨𝐬 𝐄𝐬𝐩𝐞𝐜𝐢𝐚𝐥𝐞𝐬 ₊ ⊹ 🌃 ˚₊୧
-
-<br><br>
-
-En Eventos Brookhaven la ciudad nunca duerme… mucho menos en invierno 🌨️🏙️
-
-<br><br>
-
-❄️ Cafeterías nevadas
-<br>
-🧣 Caminatas nocturnas
-<br>
-⛸️ Patinaje sobre hielo
-<br>
-🎄 Festivales de luces y decoración
-<br>
-🚓 Operativos policiales en tormentas
-<br><br>
-
-🚗 Carreras ilegales
-<br>
-🚨 Persecuciones policiales
-<br>
-🏢 Roleplay urbano y nocturno
-<br>
-🖤 Reuniones secretas & mafias
-<br>
-🎧 Fiestas underground
-<br><br>
-
-💎 Concursos estéticos
-<br>
-🎟️ Sorteos especiales
-<br>
-🏆 Competencias y desafíos
-<br>
-🎤 Karaoke nights
-<br>
-📸 Concursos de fotografía RP
-
-</p>
-
+<div class="card">
+<h3>🛡️ HELPER</h3>
+<span class="role">No Informado.</span>
 </div>
 
 </div>
-
 </section>
 
-<!-- DISCORD -->
+<section class="discord" id="discord">
+<h2 class="section-title">Únete al Discord</h2>
 
-<section id="discord">
-
-<h2 class="title">
-💎 Únete
-</h2>
-
-<div class="card" style="text-align:center;">
-
-<h3>Servidor Oficial</h3>
-
-<p style="margin:25px 0;">
-
-Haz click abajo para entrar al servidor oficial de Eventos Brookhaven ❄️
-
-</p>
+<p>Forma parte de la comunidad oficial.</p>
 
 <a class="btn" href="https://discord.gg/4eM9jeUq8a" target="_blank">
+Entrar al Discord
+</a>
+</section>
 
-ENTRAR AL DISCORD
+<section id="apelaciones">
 
+<h2 class="section-title">Apelar Sanciones o Baneos</h2>
+
+<div class="card" style="max-width:800px;margin:auto;text-align:center;">
+
+<h3 style="margin-bottom:15px;">
+⚖️ Sistema de Apelaciones
+</h3>
+
+<p style="margin-bottom:25px;color:#ddd;">
+¿Recibiste una sanción o un baneo y crees que fue un error?
+Puedes enviar una apelación para que el equipo administrativo revise tu caso.
+</p>
+
+<a
+class="btn"
+href="https://xwolov.github.io/Support/"
+target="_blank">
+Enviar Apelación
 </a>
 
 </div>
 
 </section>
 
-<!-- BOTON MUSICA -->
+<section id="soporte">
+<h2 class="section-title">Soporte</h2>
 
-<button class="music-btn" onclick="toggleMusic()">
+<div class="support-grid">
 
-🎵
+<div class="card">
+<h3>🎫 Tickets 24/7</h3>
+</div>
 
-</button>
+<div class="card">
+<h3>⚡ Reportes Rápidos</h3>
+</div>
+
+<div class="card">
+<h3>📚 FAQ Próximamente</h3>
+</div>
+
+</div>
+</section>
+
+<div class="music-player">
+<button id="musicBtn" class="btn">🎵 Reproducir Música</button>
 
 <audio id="bgMusic" loop>
-
-<source src="dejavu.mp3" type="audio/mpeg">
-
+<source src="riptide.mp3" type="audio/mpeg">
 </audio>
-
-<!-- FOOTER -->
+</div>
 
 <footer>
-
-❄️ Eventos Brookhaven - Invierno 2026
-
+© 2026 Eventos Brookhaven
 </footer>
-
-<!-- SCRIPT -->
 
 <script>
 
-/* NIEVE */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
 
-const snow = document.getElementById("snow");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-for(let i = 0; i < 80; i++){
+let particles=[];
 
-    let flake = document.createElement("span");
+for(let i=0;i<140;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:Math.random()*2+1,
+speed:Math.random()*0.5+0.2
+});
+}
 
-    flake.innerHTML = "❄";
+function animate(){
 
-    flake.style.left = Math.random() * 100 + "vw";
+ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    flake.style.fontSize = Math.random() * 20 + 10 + "px";
+particles.forEach(p=>{
 
-    flake.style.animationDuration = Math.random() * 10 + 5 + "s";
+p.y += p.speed;
 
-    flake.style.opacity = Math.random();
+if(p.y > canvas.height){
+p.y = -10;
+p.x = Math.random()*canvas.width;
+}
 
-    snow.appendChild(flake);
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+ctx.fillStyle="white";
+ctx.fill();
+
+});
+
+requestAnimationFrame(animate);
 
 }
 
-/* MUSICA */
+animate();
 
-const music = document.getElementById("bgMusic");
+window.addEventListener("resize",()=>{
 
-let isPlaying = false;
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
 
-function toggleMusic(){
+});
 
-    if(isPlaying){
+const music=document.getElementById("bgMusic");
+const musicBtn=document.getElementById("musicBtn");
 
-        music.pause();
+let isPlaying=false;
 
-        isPlaying = false;
+musicBtn.addEventListener("click",()=>{
 
-    } else {
+if(!isPlaying){
 
-        music.play();
+music.play();
+musicBtn.textContent="⏸️ Pausar Música";
+isPlaying=true;
 
-        isPlaying = true;
+}else{
 
-    }
+music.pause();
+musicBtn.textContent="🎵 Reproducir Música";
+isPlaying=false;
 
 }
+
+});
 
 </script>
 
